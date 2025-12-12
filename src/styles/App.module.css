@@ -1,0 +1,321 @@
+/* src/styles/App.module.css (最终完整合并版) */
+
+:root {
+    --color-primary-blue: #005BBB;
+    --color-light-blue: #E8F1FF;
+    --color-background: #F8F8F8;
+    --color-white: #FFFFFF;
+    --color-black: #1E1E1E;
+    --color-gray-dark: #4A5565;
+    --color-gray-medium: #687385;
+    --color-gray-light: #ccc;
+    --color-red: #D93737;
+}
+
+
+
+.pageContainer {
+    width: 100%; 
+    min-height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    background-color: var(--color-background);
+    overflow-x: hidden; 
+}
+
+.mainContent {
+    max-width: 1440px; 
+    margin: 0 auto;
+    padding: 0 64px;
+}
+
+.header {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  background-color: white;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 12px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerNav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navButton {
+    background: none;
+    border: none;
+    color: var(--color-gray-dark);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    font-weight: 500;
+}
+.headerSearch {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-background);
+    border-radius: 20px;
+    padding: 8px 15px;
+    gap: 10px;
+}
+.headerSearch input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 16px;
+}
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    padding: 24px 0;
+}
+.breadcrumbButton {
+    background: none;
+    border: none;
+    color: var(--color-gray-dark);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+}
+.breadcrumbSeparator {
+    margin: 0 8px;
+    color: var(--color-gray-dark);
+}
+.breadcrumbCurrent {
+    font-size: 16px;
+    color: var(--color-black);
+    font-weight: 600;
+}
+
+.searchFilterSectionWrapper {
+    width: 100%;
+    margin-top: 24px;
+}
+
+.sectionTitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.searchInputContainer {
+    display: flex; 
+    align-items: center;
+    gap: 12px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-light);
+    border-radius: 12px;
+    padding: 10px 20px;
+    margin-bottom: 24px;
+}
+.searchInputContainer input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 20px;
+    padding: 0;
+}
+
+.filterButtons {
+    display: flex;
+    gap: 15px; 
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.filterButton {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    padding: 8px 15px; 
+    border-radius: 999px; 
+    border: 1px solid var(--color-gray-light);
+    font-size: 16px;
+    cursor: pointer;
+    flex-shrink: 0; 
+    transition: all 0.2s ease;
+}
+
+.filterButtonActive {
+    padding: 8px 15px; 
+    border-radius: 999px; 
+    background-color: var(--color-primary-blue, #005BBB);
+    color: var(--color-white, #FFFFFF);
+    border-color: var(--color-primary-blue, #005BBB);
+    border-width: 1px; 
+    border-style: solid;
+}
+
+.recommendedContainer {
+    display: flex; 
+    overflow-x: auto; 
+    gap: 60px; 
+    padding-bottom: 16px;
+    margin-bottom: 48px;
+}
+
+.allMealsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+
+.recCard {
+    width: 280px; 
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--color-white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0; 
+}
+
+.recCardImage {
+    position: relative;
+    height: 140px;
+}
+
+.recCardImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recCardTimeTag {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 6px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--color-primary-blue);
+    font-weight: 500;
+}
+
+.recCardContent {
+    padding: 12px;
+}
+
+.recCardName {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-black);
+}
+
+.recTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.recTag {
+    font-size: 10px;
+    color: var(--color-primary-blue);
+    background-color: var(--color-light-blue);
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.allMealCard {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.allMealCardImage img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.allMealContent {
+    padding: 15px;
+}
+
+.allMealName {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--color-black);
+}
+
+.allMealDetails {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.detailItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    color: var(--color-primary-blue);
+}
+
+.detailItem p {
+    margin: 0;
+}
+
+.viewRecipe {
+    background: none;
+    border: none;
+    color: var(--color-primary-blue);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+    .allMealsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .header {
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 0; 
+    }
+    
+    .headerNav {
+        display: none; 
+    }
+    
+    .headerSearch {
+        width: 100%;
+    }
+    
+    .allMealsGrid {
+        grid-template-columns: 1fr;
+    }
+}

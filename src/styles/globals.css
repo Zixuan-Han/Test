@@ -1,0 +1,41 @@
+/* src/styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Arimo:wght@400;500;700&display=swap');
+
+:root {
+    --color-background: #F8F8F8;
+    --color-white: #FFFFFF;
+    --color-black: #1E1E1E;
+    --color-primary: #005BBB; 
+    --color-secondary-blue: #E8F1FF; 
+    --color-gray-dark: #4A5565;
+    --color-gray-medium: #5A5A5A;
+    --color-gray-light: #CECECE;
+    --color-light-bg: #EDEDED;
+    --color-card-border: #E0E0E0;
+
+    --font-size-sm: 10px;
+    --font-size-base: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 20px;
+    --font-size-xl: 24px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Arimo', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
