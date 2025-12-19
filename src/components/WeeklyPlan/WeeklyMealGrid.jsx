@@ -5,36 +5,95 @@ import WeeklyMealCell from './WeeklyMealCell';
 const DAYS_OF_WEEK = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner'];
 
+const MEAL_CELL_HEIGHT = '300px'; 
+const MEAL_CELL_MARGIN = '70px'; 
+const FIXED_COLUMN_WIDTH = '120px';
+
 export default function WeeklyMealGrid({ meals, handleCellAction }) {
+    
+    const gridTemplateColumns = `${FIXED_COLUMN_WIDTH} repeat(${DAYS_OF_WEEK.length}, 1fr)`;
+    
+    const columnStyles = {
+        padding: '20px 10px', 
+    };
+
     return (
         <div style={{ width: '100%', overflowX: 'auto', paddingBottom: '20px' }}>
-            <div style={{ display: 'flex', minWidth: '1200px', border: '1px solid #ccc', borderRadius: '16px', backgroundColor: 'white' }}>
+            
+            <div 
+                style={{ 
+                    display: 'grid', 
+                    gridTemplateColumns: gridTemplateColumns, 
+                    minWidth: '1200px', 
+                    borderRadius: '16px', 
+                    backgroundColor: 'white' 
+                }}
+            >
+    
+                <div style={{ 
+                    height: '40px',
+                    position: 'sticky', 
+                    left: 0, 
+                    zIndex: 10,
+                    backgroundColor: 'white'
+                }}></div> 
                 
-                <div style={{ flex: '0 0 150px', padding: '20px 0', borderRight: '1px solid #ccc' }}>
-                    <h4 style={{ fontSize: '24px', fontWeight: 'normal', margin: '15px 0 100px 0', textAlign: 'center' }}>Breakfast</h4>
-                    <h4 style={{ fontSize: '24px', fontWeight: 'normal', margin: '15px 0 100px 0', textAlign: 'center' }}>Lunch</h4>
-                    <h4 style={{ fontSize: '24px', fontWeight: 'normal', margin: '15px 0 0 0', textAlign: 'center' }}>Dinner</h4>
-                </div>
+                {DAYS_OF_WEEK.map(day => (
+                    <div 
+                        key={day} 
+                        style={{ 
+                            ...columnStyles, 
+                            height: '40px',
+                            textAlign: 'center',
+                            fontWeight: 'bold',
+                            fontSize: '24px',
+                            backgroundColor: 'white'
+                        }}
+                    >
+                        {day}
+                    </div>
+                ))}
 
-                <div style={{ flexGrow: 1, display: 'grid', gridTemplateColumns: `repeat(${DAYS_OF_WEEK.length}, 1fr)` }}>
-                    
-                    {DAYS_OF_WEEK.map(day => (
-                        <div key={day} style={{ borderRight: day !== 'Sunday' ? '1px solid #ccc' : 'none', padding: '20px 10px' }}>
-                            <h4 style={{ fontSize: '24px', fontWeight: 'normal', textAlign: 'center', marginBottom: '30px' }}>{day}</h4>
-                            
-                            {MEAL_TYPES.map(mealType => (
-                                <div key={mealType} style={{ marginBottom: mealType !== 'Dinner' ? '70px' : '0' }}>
-                                    <WeeklyMealCell
-                                        meal={meals[day]?.[mealType]}
-                                        day={day}
-                                        mealType={mealType}
-                                        handleCellAction={handleCellAction}
-                                    />
-                                </div>
-                            ))}
+                {MEAL_TYPES.map(mealType => (
+                    <React.Fragment key={mealType}>
+                        
+                        <div 
+                            style={{ 
+                                display: 'flex', 
+                                alignItems: 'center',
+                                justifyContent: 'center', 
+                                fontWeight: 'normal',
+                                fontSize: '24px',
+                                
+                                position: 'sticky', 
+                                left: 0, 
+                                zIndex: 5,
+                                backgroundColor: 'white',
+                                
+                                height: `calc(${MEAL_CELL_HEIGHT} + 20px + ${MEAL_CELL_MARGIN})`,  
+                            }}
+                        >
+                            {mealType}
                         </div>
-                    ))}
-                </div>
+                        
+                        {DAYS_OF_WEEK.map(day => (
+                            <div 
+                                key={`${day}-${mealType}`} 
+                                style={{ 
+                                    padding: '20px 10px',
+                                    marginBottom: mealType !== 'Dinner' ? MEAL_CELL_MARGIN : '0' 
+                                }}
+                            >
+                                <WeeklyMealCell
+                                    meal={meals[day]?.[mealType]}
+                                    day={day}
+                                    mealType={mealType}
+                                    handleCellAction={handleCellAction}
+                                />
+                            </div>
+                        ))}
+                    </React.Fragment>
+                ))}
             </div>
         </div>
     );

@@ -2,7 +2,7 @@
 import React from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import styles from '../../styles/App.module.css';
-import { getMealImage } from '../MenuPage'; 
+import { getMealImage } from '../../routes/MenuPage'; 
 
 export const RecommendedMealCard = ({ meal }) => {
     const navigate = useNavigate();
